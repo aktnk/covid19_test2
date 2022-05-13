@@ -31,7 +31,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn run test
-      - run: yarn run generate:dev --fail-on-page-error
+      - run: NODE_OPTIONS="--max-old-space-size=2048" yarn run generate:dev --fail-on-page-error
       - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
 
       - name: deploy
